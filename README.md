@@ -17,22 +17,28 @@ npm run typecheck
 
 Requer Node 20 ou superior.
 
-## Deploy: GitHub → Cloudflare
+## Deploy: GitHub → Cloudflare Pages
 
-**Cloudflare Pages** (recomendado): conecte o repositório e use
+O projeto no Cloudflare se chama `primesup`. No painel, em
+**Settings → Build → Build configuration**, os campos precisam ser:
 
 | Campo | Valor |
 | --- | --- |
 | Framework preset | Next.js (Static HTML Export) |
 | Build command | `npm run build` |
 | Build output directory | `out` |
-| Variável de ambiente | `NODE_VERSION` = `20` |
 
-Cada push na branch principal publica uma nova versão. O arquivo `public/_headers`
-já define o cache dos arquivos estáticos.
+Com isso, cada push na branch `main` publica uma nova versão sozinho.
+Sem o build command, o Cloudflare publica o repositório cru e o site responde 404.
 
-**Cloudflare Workers** (alternativa): `npm run build && npx wrangler deploy`
-usa o `wrangler.jsonc` da raiz.
+Deploy manual, sem depender do painel (exige `npx wrangler login` uma vez):
+
+```bash
+npm run deploy
+```
+
+O `wrangler.jsonc` declara a pasta de saída e o `public/_headers` define o
+cache dos arquivos estáticos.
 
 ## Onde mexer
 

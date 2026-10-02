@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "preview": "npx serve out",
+    "deploy": "npm run build && npx wrangler pages deploy --branch main",
     "typecheck": "tsc --noEmit",
     "images": "node scripts/fetch-images.mjs",
     "brand": "node scripts/build-brand-assets.mjs"

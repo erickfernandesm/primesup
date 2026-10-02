@@ -1,10 +1,8 @@
 {
-  // Usado apenas se o deploy for feito como Cloudflare Workers (Static Assets).
-  // No Cloudflare Pages basta configurar: build "npm run build", saída "out".
-  "name": "prime-suplementos",
+  // Configuração do Cloudflare Pages (projeto "primesup").
+  // A pasta publicada é a `out/`, gerada por `npm run build`.
+  // Deploy manual: npm run deploy
+  "name": "primesup",
   "compatibility_date": "2026-09-01",
-  "assets": {
-    "directory": "./out",
-    "not_found_handling": "404-page"
-  }
+  "pages_build_output_dir": "./out"
 }
