@@ -1,0 +1,10 @@
+{
+  // Usado apenas se o deploy for feito como Cloudflare Workers (Static Assets).
+  // No Cloudflare Pages basta configurar: build "npm run build", saída "out".
+  "name": "prime-suplementos",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
